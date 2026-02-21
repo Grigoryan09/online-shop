@@ -35,7 +35,7 @@ public class AdminController {
     private final ProductService productService;
     private final UserService userService;
 
-    @Value("${online.shop.upload.image.directory,path}")
+    @Value("${online.shop.upload.image.directory.path}")
     private String imageDirectoryPath;
 
     @GetMapping("/home")
