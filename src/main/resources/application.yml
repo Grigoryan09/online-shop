@@ -11,7 +11,10 @@ spring:
   servlet:
     multipart:
       max-request-size: 10MB
-
+  messages:
+    basename: messages
+    encoding: utf-8
+    fallback-to-system-locale: false
 online:
   shop:
     upload:

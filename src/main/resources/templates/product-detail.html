@@ -20,25 +20,29 @@
         </div>
         <div class="col-md-6">
             <h1 th:text="${product.title}"></h1>
-            <p class="lead"><strong>Цена:</strong> <span th:text="${product.price}"></span> руб.</p>
-            <p><strong>Категория:</strong> <span th:text="${product.category.name}"></span></p>
-            <p><strong>Описание:</strong> <span th:text="${product.description}"></span></p>
+            <p class="lead">
+                <strong th:text="#{price}">Цена:</strong>
+                <span th:text="${product.price}"></span>
+                <span th:text="#{rub}"></span>
+            </p>
+            <p><strong th:text="#{category}">Категория:</strong> <span th:text="${product.category.name}"></span></p>
+            <p><strong th:text="#{description}">Описание:</strong> <span th:text="${product.description}"></span></p>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class="col-md-12">
-            <h3>Комментарии</h3>
+            <h3 th:text="#{comments}">Комментарии</h3>
             <div th:if="${product}" class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title">Добавить комментарий</h5>
+                    <h5 class="card-title" th:text="#{add.comment}">Добавить комментарий</h5>
                     <form th:action="@{/comment/add}" method="post">
                         <input type="hidden" name="productId" th:value="${product.id}">
                         <div class="mb-3">
-                            <label for="comment" class="form-label">Ваш комментарий</label>
+                            <label for="comment" class="form-label" th:text="#{your.comment}">Ваш комментарий</label>
                             <textarea id="comment" name="comment" class="form-control" rows="3" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <button type="submit" class="btn btn-primary" th:text="#{send}">Отправить</button>
                     </form>
                 </div>
             </div>
@@ -46,13 +50,13 @@
     </div>
 
     <div th:if="${product.comments}">
-        <h4>Отзывы</h4>
+        <h4 th:text="#{reviews}">Отзывы</h4>
         <ul class="list-group">
             <li class="list-group-item" th:each="comment : ${product.comments}">
                 <strong th:text="${comment.user.name}">Имя пользователя</strong>:
                 <span th:text="${comment.comment}">Текст комментария</span>
                 <form th:action="@{'/comment/' + ${comment.id} + '/delete'}" method="post" style="display:inline">
-                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                    <button type="submit" class="btn btn-sm btn-danger" th:text="#{delete}">Удалить</button>
                 </form>
             </li>
         </ul>
@@ -60,7 +64,7 @@
 
     <div class="row mt-3">
         <div class="col-md-12">
-            <a href="/" class="btn btn-secondary">Вернуться на главную</a>
+            <a href="/" class="btn btn-secondary" th:text="#{back.home}">Вернуться на главную</a>
         </div>
     </div>
 </div>
