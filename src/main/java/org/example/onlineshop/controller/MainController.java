@@ -23,7 +23,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class MainController {
 
-    @Value("${online.shop.upload.image.directory,path}")
+    @Value("${online.shop.upload.image.directory.path}")
     private String imageDirectoryPath;
 
     private final CategoryService categoryService;

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: online_shop
+  datasource:
+    url: jdbc:mysql://localhost:3306/online_shop
+    username: root
+    password: root
+  messages:
+    fallback-to-system-locale: false
+    basename: messages
+    encoding: UTF-8
+online:
+  shop:
+    upload:
+      image:
+        directory:
+          path: C:\\Users\\Admin\\IdeaProjects\\online-shop\\upload_images\\
